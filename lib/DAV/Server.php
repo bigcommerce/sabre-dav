@@ -879,10 +879,10 @@ class Server extends EventEmitter implements LoggerAwareInterface {
      * Small helper to support PROPFIND with DEPTH_INFINITY.
      *
      * @param PropFind $propFind
-     * @param array $yieldFirst
+     * @param ?array $yieldFirst
      * @return \Iterator
      */
-    private function generatePathNodes(PropFind $propFind, array $yieldFirst = null) {
+    private function generatePathNodes(PropFind $propFind, ?array $yieldFirst = null) {
         if ($yieldFirst !== null) {
             yield $yieldFirst;
         }

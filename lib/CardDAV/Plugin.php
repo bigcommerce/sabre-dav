@@ -846,10 +846,10 @@ class Plugin extends DAV\ServerPlugin {
      *
      * @param string|resource $data
      * @param string $target
-     * @param array $propertiesFilter
+     * @param ?array $propertiesFilter
      * @return string
      */
-    protected function convertVCard($data, $target, array $propertiesFilter = null) {
+    protected function convertVCard($data, $target, ?array $propertiesFilter = null) {
 
         if (is_resource($data)) {
             $data = stream_get_contents($data);

@@ -34,7 +34,7 @@ class SupportedAddressData implements XmlSerializable {
      *
      * @param array|null $supportedData
      */
-    function __construct(array $supportedData = null) {
+    function __construct(?array $supportedData = null) {
 
         if (is_null($supportedData)) {
             $supportedData = [

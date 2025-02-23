@@ -649,7 +649,7 @@ class Plugin extends ServerPlugin {
      *   modified by this process.
      * @return void
      */
-    protected function processICalendarChange($oldObject = null, VCalendar $newObject, array $addresses, array $ignore = [], &$modified = false) {
+    protected function processICalendarChange($oldObject, VCalendar $newObject, array $addresses, array $ignore = [], &$modified = false) {
 
         $broker = new ITip\Broker();
         $messages = $broker->parseEvent($newObject, $addresses, $oldObject);
