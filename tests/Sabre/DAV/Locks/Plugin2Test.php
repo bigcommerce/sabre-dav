@@ -14,7 +14,7 @@ class Plugin2Test extends \Sabre\DAVServerTest {
 
     }
 
-    function tearDown() {
+    public function tearDown(): void {
 
         \Sabre\TestUtil::clearTempDir();
 

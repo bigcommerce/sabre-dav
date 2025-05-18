@@ -2,7 +2,7 @@
 
 namespace Sabre\CardDAV;
 
-class CardTest extends \PHPUnit_Framework_TestCase {
+class CardTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @var Sabre\CardDAV\Card
@@ -13,7 +13,7 @@ class CardTest extends \PHPUnit_Framework_TestCase {
      */
     protected $backend;
 
-    function setUp() {
+    public function setUp(): void {
 
         $this->backend = new Backend\Mock();
         $this->card = new Card(

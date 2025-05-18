@@ -4,14 +4,14 @@ namespace Sabre\DAVACL\FS;
 
 class CollectionTest extends FileTest {
 
-    function setUp() {
+    public function setUp(): void {
 
         $this->path = SABRE_TEMPDIR;
         $this->sut = new Collection($this->path, $this->acl, $this->owner);
 
     }
 
-    function tearDown() {
+    public function tearDown(): void {
 
         \Sabre\TestUtil::clearTempDir();
 

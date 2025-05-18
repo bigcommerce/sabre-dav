@@ -11,7 +11,7 @@ class PluginTest extends \Sabre\DAVServerTest {
 
     protected $collection;
 
-    function setUp() {
+    public function setUp(): void {
 
         parent::setUp();
         $this->server->addPlugin(new Plugin());

@@ -6,11 +6,11 @@ use Sabre\CalDAV;
 use Sabre\DAV;
 use Sabre\DAV\PropPatch;
 
-class SimplePDOTest extends \PHPUnit_Framework_TestCase {
+class SimplePDOTest extends \PHPUnit\Framework\TestCase {
 
     protected $pdo;
 
-    function setUp() {
+    public function setUp(): void {
 
         if (!SABRE_HASSQLITE) $this->markTestSkipped('SQLite driver is not available');
 

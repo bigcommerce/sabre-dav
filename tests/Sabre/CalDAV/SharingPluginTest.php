@@ -13,7 +13,7 @@ class SharingPluginTest extends \Sabre\DAVServerTest {
     protected $setupACL = true;
     protected $autoLogin = 'user1';
 
-    function setUp() {
+    public function setUp(): void {
 
         $this->caldavCalendars = [
             [

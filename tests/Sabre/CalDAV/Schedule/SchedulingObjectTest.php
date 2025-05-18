@@ -4,7 +4,7 @@ namespace Sabre\CalDAV\Schedule;
 
 use Sabre\CalDAV\Backend;
 
-class SchedulingObjectTest extends \PHPUnit_Framework_TestCase {
+class SchedulingObjectTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @var Sabre\CalDAV\Backend_PDO
@@ -19,7 +19,7 @@ class SchedulingObjectTest extends \PHPUnit_Framework_TestCase {
     protected $data;
     protected $data2;
 
-    function setup() {
+    public function setUp(): void {
 
         if (!SABRE_HASSQLITE) $this->markTestSkipped('SQLite driver is not available');
         $this->backend = new Backend\MockScheduling();
@@ -46,7 +46,7 @@ ICS;
 
     }
 
-    function teardown() {
+    public function tearDown(): void {
 
         unset($this->inbox);
         unset($this->backend);

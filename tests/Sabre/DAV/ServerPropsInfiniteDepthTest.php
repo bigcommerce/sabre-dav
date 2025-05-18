@@ -14,7 +14,7 @@ class ServerPropsInfiniteDepthTest extends AbstractServer {
 
     }
 
-    function setUp() {
+    public function setUp(): void {
 
         if (file_exists(SABRE_TEMPDIR . '../.sabredav')) unlink(SABRE_TEMPDIR . '../.sabredav');
         parent::setUp();
@@ -27,7 +27,7 @@ class ServerPropsInfiniteDepthTest extends AbstractServer {
 
     }
 
-    function tearDown() {
+    public function tearDown(): void {
 
         parent::tearDown();
         if (file_exists(SABRE_TEMPDIR . '../.locksdb')) unlink(SABRE_TEMPDIR . '../.locksdb');

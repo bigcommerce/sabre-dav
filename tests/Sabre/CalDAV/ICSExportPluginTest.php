@@ -13,7 +13,7 @@ class ICSExportPluginTest extends \Sabre\DAVServerTest {
 
     protected $icsExportPlugin;
 
-    function setUp() {
+    public function setUp(): void {
 
         parent::setUp();
         $this->icsExportPlugin = new ICSExportPlugin();

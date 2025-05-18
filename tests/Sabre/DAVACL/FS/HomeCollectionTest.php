@@ -4,7 +4,7 @@ namespace Sabre\DAVACL\FS;
 
 use Sabre\DAVACL\PrincipalBackend\Mock as PrincipalBackend;
 
-class HomeCollectionTest extends \PHPUnit_Framework_TestCase {
+class HomeCollectionTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * System under test
@@ -16,7 +16,7 @@ class HomeCollectionTest extends \PHPUnit_Framework_TestCase {
     protected $path;
     protected $name = 'thuis';
 
-    function setUp() {
+    public function setUp(): void {
 
         $principalBackend = new PrincipalBackend();
 
@@ -28,7 +28,7 @@ class HomeCollectionTest extends \PHPUnit_Framework_TestCase {
 
     }
 
-    function tearDown() {
+    public function tearDown(): void {
 
         \Sabre\TestUtil::clearTempDir();
 

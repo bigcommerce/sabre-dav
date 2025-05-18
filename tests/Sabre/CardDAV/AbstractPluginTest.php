@@ -6,7 +6,7 @@ use Sabre\DAV;
 use Sabre\DAVACL;
 use Sabre\HTTP;
 
-abstract class AbstractPluginTest extends \PHPUnit_Framework_TestCase {
+abstract class AbstractPluginTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @var Sabre\CardDAV\Plugin
@@ -21,7 +21,7 @@ abstract class AbstractPluginTest extends \PHPUnit_Framework_TestCase {
      */
     protected $backend;
 
-    function setUp() {
+    public function setUp(): void {
 
         $this->backend = new Backend\Mock();
         $principalBackend = new DAVACL\PrincipalBackend\Mock();

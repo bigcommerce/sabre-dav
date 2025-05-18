@@ -5,7 +5,7 @@ namespace Sabre\CardDAV\Backend;
 use Sabre\CardDAV;
 use Sabre\DAV\PropPatch;
 
-abstract class AbstractPDOTest extends \PHPUnit_Framework_TestCase {
+abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
 
     use \Sabre\DAV\DbTestHelperTrait;
 
@@ -14,7 +14,7 @@ abstract class AbstractPDOTest extends \PHPUnit_Framework_TestCase {
      */
     protected $backend;
 
-    function setUp() {
+    public function setUp(): void {
 
         $this->dropTables([
             'addressbooks',

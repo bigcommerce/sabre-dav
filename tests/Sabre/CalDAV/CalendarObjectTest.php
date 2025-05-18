@@ -4,7 +4,7 @@ namespace Sabre\CalDAV;
 
 require_once 'Sabre/CalDAV/TestUtil.php';
 
-class CalendarObjectTest extends \PHPUnit_Framework_TestCase {
+class CalendarObjectTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @var Sabre\CalDAV\Backend_PDO
@@ -16,7 +16,7 @@ class CalendarObjectTest extends \PHPUnit_Framework_TestCase {
     protected $calendar;
     protected $principalBackend;
 
-    function setup() {
+    public function setUp(): void {
 
         $this->backend = TestUtil::getBackend();
 
@@ -26,7 +26,7 @@ class CalendarObjectTest extends \PHPUnit_Framework_TestCase {
 
     }
 
-    function teardown() {
+    public function tearDown(): void {
 
         unset($this->calendar);
         unset($this->backend);

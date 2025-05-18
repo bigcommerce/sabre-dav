@@ -8,7 +8,7 @@ use Sabre\DAV;
 use Sabre\DAVACL;
 use Sabre\HTTP;
 
-class FreeBusyRequestTest extends \PHPUnit_Framework_TestCase {
+class FreeBusyRequestTest extends \PHPUnit\Framework\TestCase {
 
     protected $plugin;
     protected $server;
@@ -22,7 +22,7 @@ class FreeBusyRequestTest extends \PHPUnit_Framework_TestCase {
      */
     protected $response;
 
-    function setUp() {
+    public function setUp(): void {
 
         $caldavNS = '{' . CalDAV\Plugin::NS_CALDAV . '}';
         $calendars = [

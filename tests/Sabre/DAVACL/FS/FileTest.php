@@ -2,7 +2,7 @@
 
 namespace Sabre\DAVACL\FS;
 
-class FileTest extends \PHPUnit_Framework_TestCase {
+class FileTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * System under test
@@ -21,7 +21,7 @@ class FileTest extends \PHPUnit_Framework_TestCase {
 
     protected $owner = 'principals/evert';
 
-    function setUp() {
+    public function setUp(): void {
 
         $this->sut = new File($this->path, $this->acl, $this->owner);
 
