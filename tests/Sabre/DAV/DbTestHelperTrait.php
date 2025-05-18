@@ -128,7 +128,7 @@ trait DbTestHelperTrait {
 
     }
 
-    function tearDown() {
+    public function tearDown(): void {
 
         switch ($this->driver) {
 

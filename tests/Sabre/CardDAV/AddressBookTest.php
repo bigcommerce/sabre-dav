@@ -4,7 +4,7 @@ namespace Sabre\CardDAV;
 
 use Sabre\DAV\PropPatch;
 
-class AddressBookTest extends \PHPUnit_Framework_TestCase {
+class AddressBookTest extends \PHPUnit\Framework\TestCase {
 
     use \Sabre\DAV\DbTestHelperTrait;
 
@@ -14,7 +14,7 @@ class AddressBookTest extends \PHPUnit_Framework_TestCase {
     protected $ab;
     protected $backend;
 
-    function setUp() {
+    public function setUp(): void {
 
         $this->backend = new Backend\Mock();
         $this->ab = new AddressBook(

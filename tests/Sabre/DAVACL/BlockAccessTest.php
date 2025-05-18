@@ -4,7 +4,7 @@ namespace Sabre\DAVACL;
 
 use Sabre\DAV;
 
-class BlockAccessTest extends \PHPUnit_Framework_TestCase {
+class BlockAccessTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @var DAV\Server
@@ -12,7 +12,7 @@ class BlockAccessTest extends \PHPUnit_Framework_TestCase {
     protected $server;
     protected $plugin;
 
-    function setUp() {
+    public function setUp(): void {
 
         $nodes = [
             new DAV\SimpleCollection('testdir'),

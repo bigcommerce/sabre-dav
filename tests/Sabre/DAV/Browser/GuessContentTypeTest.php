@@ -7,7 +7,7 @@ use Sabre\DAV;
 require_once 'Sabre/DAV/AbstractServer.php';
 class GuessContentTypeTest extends DAV\AbstractServer {
 
-    function setUp() {
+    public function setUp(): void {
 
         parent::setUp();
         \Sabre\TestUtil::clearTempDir();
@@ -16,7 +16,7 @@ class GuessContentTypeTest extends DAV\AbstractServer {
 
     }
 
-    function tearDown() {
+    public function tearDown(): void {
 
         \Sabre\TestUtil::clearTempDir();
         parent::tearDown();

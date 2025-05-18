@@ -4,7 +4,7 @@ namespace Sabre\CardDAV;
 
 use Sabre\DAV\MkCol;
 
-class AddressBookHomeTest extends \PHPUnit_Framework_TestCase {
+class AddressBookHomeTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @var Sabre\CardDAV\AddressBookHome
@@ -12,7 +12,7 @@ class AddressBookHomeTest extends \PHPUnit_Framework_TestCase {
     protected $s;
     protected $backend;
 
-    function setUp() {
+    public function setUp(): void {
 
         $this->backend = new Backend\Mock();
         $this->s = new AddressBookHome(

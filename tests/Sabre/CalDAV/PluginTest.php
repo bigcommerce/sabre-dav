@@ -8,7 +8,7 @@ use Sabre\DAV;
 use Sabre\DAVACL;
 use Sabre\HTTP;
 
-class PluginTest extends \PHPUnit_Framework_TestCase {
+class PluginTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @var DAV\Server
@@ -27,7 +27,7 @@ class PluginTest extends \PHPUnit_Framework_TestCase {
      */
     protected $caldavBackend;
 
-    function setup() {
+    public function setUp(): void {
 
         $caldavNS = '{urn:ietf:params:xml:ns:caldav}';
 

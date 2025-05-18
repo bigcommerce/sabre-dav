@@ -9,7 +9,7 @@ require_once 'Sabre/DAV/AbstractServer.php';
 
 class PluginTest extends DAV\AbstractServer {
 
-    function setUp() {
+    public function setUp(): void {
 
         parent::setUp();
         $this->server->addPlugin(new Plugin());

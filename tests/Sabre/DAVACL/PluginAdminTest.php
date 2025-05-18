@@ -8,11 +8,11 @@ use Sabre\HTTP;
 require_once 'Sabre/DAVACL/MockACLNode.php';
 require_once 'Sabre/HTTP/ResponseMock.php';
 
-class PluginAdminTest extends \PHPUnit_Framework_TestCase {
+class PluginAdminTest extends \PHPUnit\Framework\TestCase {
 
     public $server;
 
-    function setUp() {
+    public function setUp(): void {
 
         $principalBackend = new PrincipalBackend\Mock();
 

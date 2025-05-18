@@ -6,7 +6,7 @@ use Sabre\DAV\PropPatch;
 
 require_once 'Sabre/CalDAV/TestUtil.php';
 
-class CalendarTest extends \PHPUnit_Framework_TestCase {
+class CalendarTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @var Sabre\CalDAV\Backend\PDO
@@ -22,7 +22,7 @@ class CalendarTest extends \PHPUnit_Framework_TestCase {
      */
     protected $calendars;
 
-    function setup() {
+    public function setUp(): void {
 
         $this->backend = TestUtil::getBackend();
 
@@ -33,7 +33,7 @@ class CalendarTest extends \PHPUnit_Framework_TestCase {
 
     }
 
-    function teardown() {
+    public function tearDown(): void {
 
         unset($this->backend);
 

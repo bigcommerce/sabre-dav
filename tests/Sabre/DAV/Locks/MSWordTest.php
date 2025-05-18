@@ -8,9 +8,9 @@ use Sabre\HTTP;
 require_once 'Sabre/HTTP/ResponseMock.php';
 require_once 'Sabre/TestUtil.php';
 
-class MSWordTest extends \PHPUnit_Framework_TestCase {
+class MSWordTest extends \PHPUnit\Framework\TestCase {
 
-    function tearDown() {
+    public function tearDown(): void {
 
         \Sabre\TestUtil::clearTempDir();
 

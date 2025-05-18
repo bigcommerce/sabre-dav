@@ -4,14 +4,14 @@ namespace Sabre\DAVACL;
 
 use Sabre\DAV;
 
-class AllowAccessTest extends \PHPUnit_Framework_TestCase {
+class AllowAccessTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @var DAV\Server
      */
     protected $server;
 
-    function setUp() {
+    public function setUp(): void {
 
         $nodes = [
             new DAV\Mock\Collection('testdir', [

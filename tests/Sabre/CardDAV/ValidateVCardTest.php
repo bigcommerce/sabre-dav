@@ -8,12 +8,12 @@ use Sabre\HTTP;
 
 require_once 'Sabre/HTTP/ResponseMock.php';
 
-class ValidateVCardTest extends \PHPUnit_Framework_TestCase {
+class ValidateVCardTest extends \PHPUnit\Framework\TestCase {
 
     protected $server;
     protected $cardBackend;
 
-    function setUp() {
+    public function setUp(): void {
 
         $addressbooks = [
             [

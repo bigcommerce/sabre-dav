@@ -8,7 +8,7 @@ use Sabre\HTTP;
 require_once 'Sabre/CalDAV/Backend/Mock.php';
 require_once 'Sabre/HTTP/ResponseMock.php';
 
-class FreeBusyReportTest extends \PHPUnit_Framework_TestCase {
+class FreeBusyReportTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @var Plugin
@@ -19,7 +19,7 @@ class FreeBusyReportTest extends \PHPUnit_Framework_TestCase {
      */
     protected $server;
 
-    function setUp() {
+    public function setUp(): void {
 
         $obj1 = <<<ics
 BEGIN:VCALENDAR

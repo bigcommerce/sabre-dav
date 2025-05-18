@@ -12,11 +12,11 @@ use Sabre\HTTP;
  *
  * See: http://sabre.io/dav/http-patch/
  */
-class SpecificationTest extends \PHPUnit_Framework_TestCase {
+class SpecificationTest extends \PHPUnit\Framework\TestCase {
 
     protected $server;
 
-    function setUp() {
+    public function setUp(): void {
 
         $tree = [
             new File(SABRE_TEMPDIR . '/foobar.txt')
@@ -31,7 +31,7 @@ class SpecificationTest extends \PHPUnit_Framework_TestCase {
 
     }
 
-    function tearDown() {
+    public function tearDown(): void {
 
         \Sabre\TestUtil::clearTempDir();
 

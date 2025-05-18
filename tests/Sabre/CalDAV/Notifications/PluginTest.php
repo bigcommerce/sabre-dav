@@ -9,7 +9,7 @@ use Sabre\DAVACL;
 use Sabre\HTTP;
 use Sabre\HTTP\Request;
 
-class PluginTest extends \PHPUnit_Framework_TestCase {
+class PluginTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @var Sabre\DAV\Server
@@ -25,7 +25,7 @@ class PluginTest extends \PHPUnit_Framework_TestCase {
      */
     protected $caldavBackend;
 
-    function setup() {
+    public function setUp(): void {
 
         $this->caldavBackend = new CalDAV\Backend\MockSharing();
         $principalBackend = new DAVACL\PrincipalBackend\Mock();

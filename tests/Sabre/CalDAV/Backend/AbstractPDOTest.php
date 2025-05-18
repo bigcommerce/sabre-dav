@@ -7,13 +7,13 @@ use Sabre\DAV;
 use Sabre\DAV\PropPatch;
 use Sabre\DAV\Xml\Element\Sharee;
 
-abstract class AbstractPDOTest extends \PHPUnit_Framework_TestCase {
+abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
 
     use DAV\DbTestHelperTrait;
 
     protected $pdo;
 
-    function setUp() {
+    public function setUp(): void {
 
         $this->dropTables([
             'calendarobjects',

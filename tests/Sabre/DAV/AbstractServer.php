@@ -4,7 +4,7 @@ namespace Sabre\DAV;
 
 use Sabre\HTTP;
 
-abstract class AbstractServer extends \PHPUnit_Framework_TestCase {
+abstract class AbstractServer extends \PHPUnit\Framework\TestCase {
 
     /**
      * @var \Sabre\HTTP\ResponseMock
@@ -17,7 +17,7 @@ abstract class AbstractServer extends \PHPUnit_Framework_TestCase {
     protected $server;
     protected $tempDir = SABRE_TEMPDIR;
 
-    function setUp() {
+    public function setUp(): void {
 
         $this->response = new HTTP\ResponseMock();
         $this->server = new Server($this->getRootNode());
@@ -32,7 +32,7 @@ abstract class AbstractServer extends \PHPUnit_Framework_TestCase {
 
     }
 
-    function tearDown() {
+    public function tearDown(): void {
 
         $this->deleteTree(SABRE_TEMPDIR, false);
 

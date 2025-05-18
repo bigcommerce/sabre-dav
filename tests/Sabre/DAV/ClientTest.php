@@ -7,9 +7,9 @@ use Sabre\HTTP\Response;
 
 require_once 'Sabre/DAV/ClientMock.php';
 
-class ClientTest extends \PHPUnit_Framework_TestCase {
+class ClientTest extends \PHPUnit\Framework\TestCase {
 
-    function setUp() {
+    public function setUp(): void {
 
         if (!function_exists('curl_init')) {
             $this->markTestSkipped('CURL must be installed to test the client');
