@@ -24,20 +24,16 @@ class UserTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\Forbidden
-     */
     function testCreateFile() {
+        $this->expectException(\Sabre\DAV\Exception\Forbidden::class);
 
         $u = $this->getInstance();
         $u->createFile('test');
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\Forbidden
-     */
     function testCreateDirectory() {
+        $this->expectException(\Sabre\DAV\Exception\Forbidden::class);
 
         $u = $this->getInstance();
         $u->createDirectory('test');
@@ -60,20 +56,16 @@ class UserTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\NotFound
-     */
     function testGetChildNotFound() {
+        $this->expectException(\Sabre\DAV\Exception\NotFound::class);
 
         $u = $this->getInstance();
         $child = $u->getChild('foo');
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\NotFound
-     */
     function testGetChildNotFound2() {
+        $this->expectException(\Sabre\DAV\Exception\NotFound::class);
 
         $u = $this->getInstance();
         $child = $u->getChild('random');

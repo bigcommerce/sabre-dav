@@ -2,6 +2,7 @@
 
 namespace Sabre\CalDAV\Xml\Notification;
 
+use InvalidArgumentException;
 use Sabre\DAV;
 use Sabre\Xml\Writer;
 
@@ -115,19 +116,15 @@ FOO
 
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     */
     function testMissingArg() {
+        $this->expectException(InvalidArgumentException::class);
 
         new InviteReply([]);
 
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     */
     function testUnknownArg() {
+        $this->expectException(InvalidArgumentException::class);
 
         new InviteReply([
             'foo-i-will-break' => true,

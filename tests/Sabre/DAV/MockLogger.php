@@ -24,7 +24,7 @@ class MockLogger extends AbstractLogger {
      * @param array $context
      * @return null
      */
-    function log($level, $message, array $context = []) {
+    function log($level, $message, array $context = []): void {
 
         $this->logs[] = [
             $level,

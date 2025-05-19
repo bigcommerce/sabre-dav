@@ -46,10 +46,8 @@ XML;
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\BadRequest
-     */
     function testDeserializeNoFilter() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $xml = <<<XML
 <?xml version="1.0"?>
@@ -216,10 +214,8 @@ XML;
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\BadRequest
-     */
     function testDeserializeDoubleTopCompFilter() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $xml = <<<XML
 <?xml version="1.0"?>
@@ -241,10 +237,8 @@ XML;
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\BadRequest
-     */
     function testDeserializeMissingExpandEnd() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $xml = <<<XML
 <?xml version="1.0"?>
@@ -265,10 +259,8 @@ XML;
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\BadRequest
-     */
     function testDeserializeExpandEndBeforeStart() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $xml = <<<XML
 <?xml version="1.0"?>
@@ -289,10 +281,8 @@ XML;
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\BadRequest
-     */
     function testDeserializeTimeRangeOnVCALENDAR() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $xml = <<<XML
 <?xml version="1.0"?>
@@ -313,10 +303,8 @@ XML;
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\BadRequest
-     */
     function testDeserializeTimeRangeEndBeforeStart() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $xml = <<<XML
 <?xml version="1.0"?>
@@ -339,10 +327,8 @@ XML;
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\BadRequest
-     */
     function testDeserializeTimeRangePropEndBeforeStart() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $xml = <<<XML
 <?xml version="1.0"?>

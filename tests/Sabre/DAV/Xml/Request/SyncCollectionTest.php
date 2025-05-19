@@ -76,10 +76,8 @@ class SyncCollectionTest extends XmlTest {
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\BadRequest
-     */
     function testDeserializeMissingElem() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $xml = '<?xml version="1.0"?>
 <d:sync-collection xmlns:d="DAV:">

@@ -149,7 +149,7 @@ class ServerRangeTest extends \Sabre\DAVServerTest {
             $response->getHeaders()
         );
 
-        $this->assertEquals('st c', $response->getBodyAsString());
+        $this->assertEquals('onte', $response->getBodyAsString());
 
     }
 

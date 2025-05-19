@@ -97,10 +97,8 @@ XML;
 
     }
 
-    /**
-     * @expectedException \LogicException
-     */
     function testDeserializeCustomBad() {
+        $this->expectException(\LogicException::class);
 
         $input = <<<XML
 <?xml version="1.0"?>
@@ -119,10 +117,8 @@ XML;
 
     }
 
-    /**
-     * @expectedException \LogicException
-     */
     function testDeserializeCustomBadObj() {
+        $this->expectException(\LogicException::class);
 
         $input = <<<XML
 <?xml version="1.0"?>
@@ -146,7 +142,7 @@ XML;
         $elementMap['{DAV:}root'] = 'Sabre\DAV\Xml\Element\Prop';
 
         $result = $this->parse($input, $elementMap);
-        $this->assertInternalType('array', $result);
+        $this->assertIsArray($result);
         $this->assertEquals($expected, $result['value']);
 
     }

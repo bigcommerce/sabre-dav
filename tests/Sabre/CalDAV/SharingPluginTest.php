@@ -51,10 +51,8 @@ class SharingPluginTest extends \Sabre\DAVServerTest {
 
     }
 
-    /**
-     * @expectedException \LogicException
-     */
     function testSetupWithoutCoreSharingPlugin() {
+        $this->expectException(\LogicException::class);
 
         $server = new DAV\Server();
         $server->addPlugin(
@@ -317,7 +315,7 @@ RRR;
         $request->setBody($xml);
 
         $response = $this->request($request);
-        $this->assertEquals(202, $response->status, $response->body);
+        $this->assertEquals(202, $response->status, $response->body ?? '');
 
     }
 
@@ -337,7 +335,7 @@ RRR;
         $request->setBody($xml);
 
         $response = $this->request($request);
-        $this->assertEquals(200, $response->status, $response->body);
+        $this->assertEquals(200, $response->status, $response->body ?? '');
 
     }
 

@@ -8,10 +8,8 @@ require_once 'Sabre/HTTP/ResponseMock.php';
 
 class ServerPreconditionsTest extends \PHPUnit\Framework\TestCase {
 
-    /**
-     * @expectedException Sabre\DAV\Exception\PreconditionFailed
-     */
     function testIfMatchNoNode() {
+        $this->expectException(\Sabre\DAV\Exception\PreconditionFailed::class);
 
         $root = new SimpleCollection('root', [new ServerPreconditionsNode()]);
         $server = new Server($root);
@@ -33,10 +31,8 @@ class ServerPreconditionsTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\PreconditionFailed
-     */
     function testIfMatchWrongEtag() {
+        $this->expectException(\Sabre\DAV\Exception\PreconditionFailed::class);
 
         $root = new SimpleCollection('root', [new ServerPreconditionsNode()]);
         $server = new Server($root);
@@ -97,10 +93,8 @@ class ServerPreconditionsTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\PreconditionFailed
-     */
     function testIfNoneMatchHasNode() {
+        $this->expectException(\Sabre\DAV\Exception\PreconditionFailed::class);
 
         $root = new SimpleCollection('root', [new ServerPreconditionsNode()]);
         $server = new Server($root);
@@ -134,10 +128,8 @@ class ServerPreconditionsTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\PreconditionFailed
-     */
     function testIfNoneMatchCorrectEtag() {
+        $this->expectException(\Sabre\DAV\Exception\PreconditionFailed::class);
 
         $root = new SimpleCollection('root', [new ServerPreconditionsNode()]);
         $server = new Server($root);
@@ -147,10 +139,8 @@ class ServerPreconditionsTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\PreconditionFailed
-     */
     function testIfNoneMatchCorrectEtagMultiple() {
+        $this->expectException(\Sabre\DAV\Exception\PreconditionFailed::class);
 
         $root = new SimpleCollection('root', [new ServerPreconditionsNode()]);
         $server = new Server($root);
@@ -286,10 +276,8 @@ class ServerPreconditionsTest extends \PHPUnit\Framework\TestCase {
     }
 
 
-    /**
-     * @expectedException Sabre\DAV\Exception\PreconditionFailed
-     */
     function testIfUnmodifiedSinceModified() {
+        $this->expectException(\Sabre\DAV\Exception\PreconditionFailed::class);
 
         $root = new SimpleCollection('root', [new ServerPreconditionsNode()]);
         $server = new Server($root);

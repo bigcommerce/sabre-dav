@@ -187,10 +187,8 @@ class ACLTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\BadRequest
-     */
     function testUnserializeNoPrincipal() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $source = '<?xml version="1.0"?>
 <d:root xmlns:d="DAV:">
@@ -276,10 +274,8 @@ class ACLTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\NotImplemented
-     */
     function testUnserializeDeny() {
+        $this->expectException(\Sabre\DAV\Exception\NotImplemented::class);
 
         $source = '<?xml version="1.0"?>
 <d:root xmlns:d="DAV:">

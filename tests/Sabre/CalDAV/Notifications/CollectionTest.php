@@ -66,10 +66,8 @@ class CollectionTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\Forbidden
-     */
     function testSetACL() {
+        $this->expectException(\Sabre\DAV\Exception\Forbidden::class);
 
         $col = $this->getInstance();
         $col->setACL([]);

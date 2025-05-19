@@ -58,7 +58,7 @@ class Href implements Element, HtmlOutput {
      */
     function getHref() {
 
-        return $this->hrefs[0];
+        return $this->hrefs[0] ?? null;
 
     }
 

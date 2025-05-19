@@ -7,10 +7,8 @@ use Sabre\DAV\Xml\XmlTest;
 
 class ShareeTest extends XmlTest {
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     function testShareeUnknownPropertyInConstructor() {
+        $this->expectException(\InvalidArgumentException::class);
 
         new Sharee(['foo' => 'bar']);
 
@@ -49,10 +47,8 @@ XML;
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\BadRequest
-     */
     function testDeserializeNoHref() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $xml = <<<XML
 <?xml version="1.0" encoding="utf-8" ?>
@@ -74,10 +70,8 @@ XML;
     }
 
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\BadRequest
-     */
     function testDeserializeNoShareeAccess() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $xml = <<<XML
 <?xml version="1.0" encoding="utf-8" ?>

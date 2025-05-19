@@ -56,7 +56,7 @@ class PluginTest extends \Sabre\DAVServerTest {
     function testGetPluginInfo() {
 
         $result = $this->sharingPlugin->getPluginInfo();
-        $this->assertInternalType('array', $result);
+        $this->assertIsArray($result);
         $this->assertEquals('sharing', $result['name']);
 
     }
@@ -81,7 +81,7 @@ class PluginTest extends \Sabre\DAVServerTest {
         $this->assertNull(
             $this->sharingPlugin->htmlActionsPanel($node, $html, 'shareable')
         );
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Share this resource',
             $html
         );
@@ -123,10 +123,8 @@ class PluginTest extends \Sabre\DAVServerTest {
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\BadRequest
-     */
     function testBrowserPostActionNoHref() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $this->sharingPlugin->browserPostAction(
             'shareable',
@@ -138,10 +136,8 @@ class PluginTest extends \Sabre\DAVServerTest {
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\BadRequest
-     */
     function testBrowserPostActionNoAccess() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $this->sharingPlugin->browserPostAction(
             'shareable',
@@ -154,10 +150,8 @@ class PluginTest extends \Sabre\DAVServerTest {
     }
 
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\BadRequest
-     */
     function testBrowserPostActionBadAccess() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $this->sharingPlugin->browserPostAction(
             'shareable',
@@ -170,10 +164,8 @@ class PluginTest extends \Sabre\DAVServerTest {
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\Forbidden
-     */
     function testBrowserPostActionAccessDenied() {
+        $this->expectException(\Sabre\DAV\Exception\Forbidden::class);
 
         $this->aclPlugin->setDefaultAcl([]);
         $this->sharingPlugin->browserPostAction(

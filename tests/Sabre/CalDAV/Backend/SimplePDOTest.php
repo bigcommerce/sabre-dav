@@ -77,7 +77,7 @@ SQL
             'uri' => 'somerandomid',
         ];
 
-        $this->assertInternalType('array', $calendars);
+        $this->assertIsArray($calendars);
         $this->assertEquals(1, count($calendars));
 
         foreach ($elementCheck as $name => $value) {
