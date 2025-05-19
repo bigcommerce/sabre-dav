@@ -96,10 +96,8 @@ class HomeCollectionTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\Forbidden
-     */
     function testSetAcl() {
+        $this->expectException(\Sabre\DAV\Exception\Forbidden::class);
 
         $this->sut->setACL([]);
 

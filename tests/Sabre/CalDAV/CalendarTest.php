@@ -82,10 +82,10 @@ class CalendarTest extends \PHPUnit\Framework\TestCase {
     }
 
     /**
-     * @expectedException Sabre\DAV\Exception\NotFound
      * @depends testSimple
      */
     function testGetChildNotFound() {
+        $this->expectException(\Sabre\DAV\Exception\NotFound::class);
 
         $this->calendar->getChild('randomname');
 
@@ -116,19 +116,15 @@ class CalendarTest extends \PHPUnit\Framework\TestCase {
 
 
 
-    /**
-     * @expectedException Sabre\DAV\Exception\MethodNotAllowed
-     */
     function testCreateDirectory() {
+        $this->expectException(\Sabre\DAV\Exception\MethodNotAllowed::class);
 
         $this->calendar->createDirectory('hello');
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\MethodNotAllowed
-     */
     function testSetName() {
+        $this->expectException(\Sabre\DAV\Exception\MethodNotAllowed::class);
 
         $this->calendar->setName('hello');
 
@@ -225,10 +221,8 @@ class CalendarTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\Forbidden
-     */
     function testSetACL() {
+        $this->expectException(\Sabre\DAV\Exception\Forbidden::class);
 
         $this->calendar->setACL([]);
 

@@ -985,10 +985,8 @@ class PluginTest extends DAV\AbstractServer {
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\BadRequest
-     */
     function testGetTimeoutHeaderInvalid() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $request = HTTP\Sapi::createFromServerArray([
             'HTTP_TIMEOUT' => 'yourmom',

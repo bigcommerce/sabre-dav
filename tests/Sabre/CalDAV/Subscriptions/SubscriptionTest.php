@@ -83,10 +83,8 @@ class SubscriptionTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\Forbidden
-     */
     function testSetACL() {
+        $this->expectException(\Sabre\DAV\Exception\Forbidden::class);
 
         $sub = $this->getSub();
         $sub->setACL([]);
@@ -118,10 +116,8 @@ class SubscriptionTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     function testBadConstruct() {
+        $this->expectException(\InvalidArgumentException::class);
 
         $caldavBackend = new \Sabre\CalDAV\Backend\MockSubscriptionSupport([], []);
         new Subscription($caldavBackend, []);

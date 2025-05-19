@@ -28,19 +28,15 @@ class AddressBookHomeTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\MethodNotAllowed
-     */
     function testSetName() {
+        $this->expectException(\Sabre\DAV\Exception\MethodNotAllowed::class);
 
         $this->s->setName('user2');
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\MethodNotAllowed
-     */
     function testDelete() {
+        $this->expectException(\Sabre\DAV\Exception\MethodNotAllowed::class);
 
         $this->s->delete();
 
@@ -52,19 +48,15 @@ class AddressBookHomeTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\MethodNotAllowed
-     */
     function testCreateFile() {
+        $this->expectException(\Sabre\DAV\Exception\MethodNotAllowed::class);
 
         $this->s->createFile('bla');
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\MethodNotAllowed
-     */
     function testCreateDirectory() {
+        $this->expectException(\Sabre\DAV\Exception\MethodNotAllowed::class);
 
         $this->s->createDirectory('bla');
 
@@ -78,10 +70,8 @@ class AddressBookHomeTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\NotFound
-     */
     function testGetChild404() {
+        $this->expectException(\Sabre\DAV\Exception\NotFound::class);
 
         $this->s->getChild('book2');
 
@@ -113,10 +103,8 @@ class AddressBookHomeTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\InvalidResourceType
-     */
     function testCreateExtendedCollectionInvalid() {
+        $this->expectException(\Sabre\DAV\Exception\InvalidResourceType::class);
 
         $resourceType = [
             '{DAV:}collection',
@@ -140,12 +128,10 @@ class AddressBookHomeTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\Forbidden
-     */
     function testSetACL() {
+        $this->expectException(\Sabre\DAV\Exception\Forbidden::class);
 
-       $this->s->setACL([]);
+        $this->s->setACL([]);
 
     }
 

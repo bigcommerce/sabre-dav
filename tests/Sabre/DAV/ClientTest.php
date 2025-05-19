@@ -2,6 +2,7 @@
 
 namespace Sabre\DAV;
 
+use InvalidArgumentException;
 use Sabre\HTTP\Request;
 use Sabre\HTTP\Response;
 
@@ -26,10 +27,8 @@ class ClientTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     */
     function testConstructNoBaseUri() {
+        $this->expectException(InvalidArgumentException::class);
 
         $client = new ClientMock([]);
 
@@ -148,10 +147,8 @@ XML;
 
     }
 
-    /**
-     * @expectedException \Sabre\HTTP\ClientHttpException
-     */
     function testPropFindError() {
+        $this->expectException(\Sabre\HTTP\ClientHttpException::class);
 
         $client = new ClientMock([
             'baseUri' => '/',
@@ -237,9 +234,9 @@ XML;
 
     /**
      * @depends testPropPatch
-     * @expectedException \Sabre\HTTP\ClientHttpException
      */
     function testPropPatchHTTPError() {
+        $this->expectException(\Sabre\HTTP\ClientHttpException::class);
 
         $client = new ClientMock([
             'baseUri' => '/',
@@ -252,9 +249,9 @@ XML;
 
     /**
      * @depends testPropPatch
-     * @expectedException Sabre\HTTP\ClientException
      */
     function testPropPatchMultiStatusError() {
+        $this->expectException(\Sabre\HTTP\ClientException::class);
 
         $client = new ClientMock([
             'baseUri' => '/',

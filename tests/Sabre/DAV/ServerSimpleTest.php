@@ -17,10 +17,8 @@ class ServerSimpleTest extends AbstractServer{
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception
-     */
     function testConstructIncorrectObj() {
+        $this->expectException(\Sabre\DAV\Exception::class);
 
         $nodes = [
             new SimpleCollection('hello'),
@@ -31,10 +29,8 @@ class ServerSimpleTest extends AbstractServer{
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception
-     */
     function testConstructInvalidArg() {
+        $this->expectException(\Sabre\DAV\Exception::class);
 
         $server = new Server(1);
 
@@ -212,10 +208,8 @@ class ServerSimpleTest extends AbstractServer{
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\Forbidden
-     */
     function testCalculateUriBreakout() {
+        $this->expectException(\Sabre\DAV\Exception\Forbidden::class);
 
         $uri = '/path1/';
 
@@ -343,9 +337,9 @@ class ServerSimpleTest extends AbstractServer{
 
     /**
      * @depends testGuessBaseUri
-     * @expectedException \Sabre\DAV\Exception
      */
     function testGuessBaseUriBadConfig() {
+        $this->expectException(\Sabre\DAV\Exception::class);
 
         $serverVars = [
             'REQUEST_URI' => '/index.php/root/heyyy',

@@ -4,20 +4,16 @@ namespace Sabre\DAV;
 
 class BasicNodeTest extends \PHPUnit\Framework\TestCase {
 
-    /**
-     * @expectedException Sabre\DAV\Exception\Forbidden
-     */
     function testPut() {
+        $this->expectException(\Sabre\DAV\Exception\Forbidden::class);
 
         $file = new FileMock();
         $file->put('hi');
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\Forbidden
-     */
     function testGet() {
+        $this->expectException(\Sabre\DAV\Exception\Forbidden::class);
 
         $file = new FileMock();
         $file->get();
@@ -46,20 +42,16 @@ class BasicNodeTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\Forbidden
-     */
     function testDelete() {
+        $this->expectException(\Sabre\DAV\Exception\Forbidden::class);
 
         $file = new FileMock();
         $file->delete();
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\Forbidden
-     */
     function testSetName() {
+        $this->expectException(\Sabre\DAV\Exception\Forbidden::class);
 
         $file = new FileMock();
         $file->setName('hi');
@@ -98,30 +90,24 @@ class BasicNodeTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\NotFound
-     */
     function testGetChild404() {
+        $this->expectException(\Sabre\DAV\Exception\NotFound::class);
 
         $dir = new DirectoryMock();
         $file = $dir->getChild('blabla');
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\Forbidden
-     */
     function testCreateFile() {
+        $this->expectException(\Sabre\DAV\Exception\Forbidden::class);
 
         $dir = new DirectoryMock();
         $dir->createFile('hello', 'data');
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\Forbidden
-     */
     function testCreateDirectory() {
+        $this->expectException(\Sabre\DAV\Exception\Forbidden::class);
 
         $dir = new DirectoryMock();
         $dir->createDirectory('hello');
@@ -149,10 +135,10 @@ class BasicNodeTest extends \PHPUnit\Framework\TestCase {
     }
 
     /**
-     * @expectedException Sabre\DAV\Exception
      * @depends testSimpleDirectoryConstruct
      */
     function testSimpleDirectoryBadParam() {
+        $this->expectException(\Sabre\DAV\Exception::class);
 
         $dir = new SimpleCollection('simpledir', ['string shouldn\'t be here']);
 
@@ -198,9 +184,9 @@ class BasicNodeTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @depends testSimpleDirectoryConstruct
-     * @expectedException Sabre\DAV\Exception\NotFound
      */
     function testSimpleDirectoryGetChild404() {
+        $this->expectException(\Sabre\DAV\Exception\NotFound::class);
 
         $dir = new SimpleCollection('simpledir');
         $dir->getChild('blabla');

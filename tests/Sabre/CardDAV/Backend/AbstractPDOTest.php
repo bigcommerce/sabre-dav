@@ -148,10 +148,8 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\BadRequest
-     */
     function testCreateAddressBookUnsupportedProp() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $this->backend->createAddressBook('principals/user1', 'book2', [
             '{DAV:}foo' => 'bar',
@@ -286,7 +284,7 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
 
                 switch ($k) {
                     case 'lastmodified' :
-                        $this->assertInternalType('int', $actual);
+                        $this->assertIsInt($actual);
                         break;
                     case 'carddata' :
                         if (is_resource($actual)) {

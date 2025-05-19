@@ -68,7 +68,7 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
             'share-access'                                            => \Sabre\DAV\Sharing\Plugin::ACCESS_SHAREDOWNER,
         ];
 
-        $this->assertInternalType('array', $calendars);
+        $this->assertIsArray($calendars);
         $this->assertEquals(1, count($calendars));
 
         foreach ($elementCheck as $name => $value) {
@@ -116,7 +116,7 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
             '{urn:ietf:params:xml:ns:caldav}schedule-calendar-transp' => new CalDAV\Xml\Property\ScheduleCalendarTransp('transparent'),
         ];
 
-        $this->assertInternalType('array', $calendars);
+        $this->assertIsArray($calendars);
         $this->assertEquals(1, count($calendars));
 
         foreach ($elementCheck as $name => $value) {
@@ -130,9 +130,9 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @depends testConstruct
-     * @expectedException \InvalidArgumentException
      */
     function testUpdateCalendarBadId() {
+        $this->expectException(\InvalidArgumentException::class);
 
         $backend = new PDO($this->pdo);
 
@@ -196,9 +196,9 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @depends testCreateCalendarAndFetch
-     * @expectedException \InvalidArgumentException
      */
     function testDeleteCalendarBadID() {
+        $this->expectException(\InvalidArgumentException::class);
 
         $backend = new PDO($this->pdo);
         $returnedId = $backend->createCalendar('principals/user2', 'somerandomid', [
@@ -212,9 +212,9 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @depends testCreateCalendarAndFetch
-     * @expectedException \Sabre\DAV\Exception
      */
-    function testCreateCalendarIncorrectComponentSet() {;
+    function testCreateCalendarIncorrectComponentSet() {
+        $this->expectException(\Sabre\DAV\Exception::class);;
 
         $backend = new PDO($this->pdo);
 
@@ -290,7 +290,7 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
 
                 switch ($key) {
                     case 'lastmodified' :
-                        $this->assertInternalType('int', $actual);
+                        $this->assertIsInt($actual);
                         break;
                     case 'calendardata' :
                         if (is_resource($actual)) {
@@ -310,9 +310,9 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @depends testGetMultipleObjects
-     * @expectedException \InvalidArgumentException
      */
     function testGetMultipleObjectsBadId() {
+        $this->expectException(\InvalidArgumentException::class);
 
         $backend = new PDO($this->pdo);
         $backend->getMultipleCalendarObjects('bad-id', ['foo-bar']);
@@ -320,10 +320,10 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
     }
 
     /**
-     * @expectedException Sabre\DAV\Exception\BadRequest
      * @depends testCreateCalendarObject
      */
     function testCreateCalendarObjectNoComponent() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $backend = new PDO($this->pdo);
         $returnedId = $backend->createCalendar('principals/user2', 'somerandomid', []);
@@ -366,9 +366,9 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @depends testCreateCalendarObject
-     * @expectedException \InvalidArgumentException
      */
     function testCreateCalendarObjectBadId() {
+        $this->expectException(\InvalidArgumentException::class);
 
         $backend = new PDO($this->pdo);
         $returnedId = $backend->createCalendar('principals/user2', 'somerandomid', []);
@@ -548,9 +548,9 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @depends testGetCalendarObjects
-     * @expectedException \InvalidArgumentException
      */
     function testGetCalendarObjectsBadId() {
+        $this->expectException(\InvalidArgumentException::class);
 
         $backend = new PDO($this->pdo);
         $backend->getCalendarObjects('bad-id');
@@ -559,9 +559,9 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @depends testGetCalendarObjects
-     * @expectedException \InvalidArgumentException
      */
     function testGetCalendarObjectBadId() {
+        $this->expectException(\InvalidArgumentException::class);
 
         $backend = new PDO($this->pdo);
         $backend->getCalendarObject('bad-id', 'foo-bar');
@@ -616,9 +616,9 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @depends testUpdateCalendarObject
-     * @expectedException \InvalidArgumentException
      */
     function testUpdateCalendarObjectBadId() {
+        $this->expectException(\InvalidArgumentException::class);
 
         $backend = new PDO($this->pdo);
         $backend->updateCalendarObject('bad-id', 'object-id', 'objectdata');
@@ -644,9 +644,9 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @depends testDeleteCalendarObject
-     * @expectedException \InvalidArgumentException
      */
     function testDeleteCalendarObjectBadId() {
+        $this->expectException(\InvalidArgumentException::class);
 
         $backend = new PDO($this->pdo);
         $returnedId = $backend->createCalendar('principals/user2', 'somerandomid', []);
@@ -682,10 +682,10 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
     }
 
     /**
-     * @expectedException \InvalidArgumentException
      * @depends testCalendarQueryNoResult
      */
     function testCalendarQueryBadId() {
+        $this->expectException(\InvalidArgumentException::class);
 
         $abstract = new PDO($this->pdo);
         $filters = [
@@ -901,9 +901,9 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @depends testGetChanges
-     * @expectedException \InvalidArgumentException
      */
     function testGetChangesBadId() {
+        $this->expectException(\InvalidArgumentException::class);
 
         $backend = new PDO($this->pdo);
         $id = $backend->createCalendar(
@@ -947,10 +947,8 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\Forbidden
-     */
     function testCreateSubscriptionFail() {
+        $this->expectException(\Sabre\DAV\Exception\Forbidden::class);
 
         $props = [
         ];
@@ -1131,9 +1129,9 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @depends testGetInvites
-     * @expectedException \InvalidArgumentException
      */
     function testGetInvitesBadId() {
+        $this->expectException(\InvalidArgumentException::class);
 
         $backend = new PDO($this->pdo);
 
@@ -1284,9 +1282,9 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @depends testUpdateInvites
-     * @expectedException \InvalidArgumentException
      */
     function testUpdateInvitesBadId() {
+        $this->expectException(\InvalidArgumentException::class);
 
         $backend = new PDO($this->pdo);
         // Add a new invite
@@ -1342,7 +1340,7 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
                 ],
             ])
         ];
-        $this->assertEquals($expected, $result, null, 0.0, 10, true); // Last argument is $canonicalize = true, which allows us to compare, ignoring the order, because it's different between MySQL and Sqlite.
+        $this->assertEquals($expected, $result, '', 0.0, 10, true); // Last argument is $canonicalize = true, which allows us to compare, ignoring the order, because it's different between MySQL and Sqlite.
 
     }
 
@@ -1418,10 +1416,8 @@ abstract class AbstractPDOTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\NotImplemented
-     */
     function testSetPublishStatus() {
+        $this->expectException(\Sabre\DAV\Exception\NotImplemented::class);
 
         $backend = new PDO($this->pdo);
         $backend->setPublishStatus([1, 1], true);

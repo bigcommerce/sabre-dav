@@ -35,10 +35,8 @@ class BlockAccessTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAVACL\Exception\NeedPrivileges
-     */
     function testGet() {
+        $this->expectException(\Sabre\DAVACL\Exception\NeedPrivileges::class);
 
         $this->server->httpRequest->setMethod('GET');
         $this->server->httpRequest->setUrl('/testdir');
@@ -57,10 +55,8 @@ class BlockAccessTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAVACL\Exception\NeedPrivileges
-     */
     function testHEAD() {
+        $this->expectException(\Sabre\DAVACL\Exception\NeedPrivileges::class);
 
         $this->server->httpRequest->setMethod('HEAD');
         $this->server->httpRequest->setUrl('/testdir');
@@ -69,10 +65,8 @@ class BlockAccessTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAVACL\Exception\NeedPrivileges
-     */
     function testOPTIONS() {
+        $this->expectException(\Sabre\DAVACL\Exception\NeedPrivileges::class);
 
         $this->server->httpRequest->setMethod('OPTIONS');
         $this->server->httpRequest->setUrl('/testdir');
@@ -81,10 +75,8 @@ class BlockAccessTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAVACL\Exception\NeedPrivileges
-     */
     function testPUT() {
+        $this->expectException(\Sabre\DAVACL\Exception\NeedPrivileges::class);
 
         $this->server->httpRequest->setMethod('PUT');
         $this->server->httpRequest->setUrl('/testdir');
@@ -93,10 +85,8 @@ class BlockAccessTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAVACL\Exception\NeedPrivileges
-     */
     function testPROPPATCH() {
+        $this->expectException(\Sabre\DAVACL\Exception\NeedPrivileges::class);
 
         $this->server->httpRequest->setMethod('PROPPATCH');
         $this->server->httpRequest->setUrl('/testdir');
@@ -105,10 +95,8 @@ class BlockAccessTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAVACL\Exception\NeedPrivileges
-     */
     function testCOPY() {
+        $this->expectException(\Sabre\DAVACL\Exception\NeedPrivileges::class);
 
         $this->server->httpRequest->setMethod('COPY');
         $this->server->httpRequest->setUrl('/testdir');
@@ -117,10 +105,8 @@ class BlockAccessTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAVACL\Exception\NeedPrivileges
-     */
     function testMOVE() {
+        $this->expectException(\Sabre\DAVACL\Exception\NeedPrivileges::class);
 
         $this->server->httpRequest->setMethod('MOVE');
         $this->server->httpRequest->setUrl('/testdir');
@@ -129,10 +115,8 @@ class BlockAccessTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAVACL\Exception\NeedPrivileges
-     */
     function testACL() {
+        $this->expectException(\Sabre\DAVACL\Exception\NeedPrivileges::class);
 
         $this->server->httpRequest->setMethod('ACL');
         $this->server->httpRequest->setUrl('/testdir');
@@ -141,10 +125,8 @@ class BlockAccessTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAVACL\Exception\NeedPrivileges
-     */
     function testLOCK() {
+        $this->expectException(\Sabre\DAVACL\Exception\NeedPrivileges::class);
 
         $this->server->httpRequest->setMethod('LOCK');
         $this->server->httpRequest->setUrl('/testdir');
@@ -153,19 +135,15 @@ class BlockAccessTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAVACL\Exception\NeedPrivileges
-     */
     function testBeforeBind() {
+        $this->expectException(\Sabre\DAVACL\Exception\NeedPrivileges::class);
 
         $this->server->emit('beforeBind', ['testdir/file']);
 
     }
 
-    /**
-     * @expectedException Sabre\DAVACL\Exception\NeedPrivileges
-     */
     function testBeforeUnbind() {
+        $this->expectException(\Sabre\DAVACL\Exception\NeedPrivileges::class);
 
         $this->server->emit('beforeUnbind', ['testdir']);
 

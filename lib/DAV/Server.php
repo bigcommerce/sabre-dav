@@ -564,7 +564,7 @@ class Server extends EventEmitter implements LoggerAwareInterface {
      */
     function calculateUri($uri) {
 
-        if ($uri[0] != '/' && strpos($uri, '://')) {
+        if (is_string($uri) && $uri[0] != '/' && strpos($uri, '://')) {
 
             $uri = parse_url($uri, PHP_URL_PATH);
 

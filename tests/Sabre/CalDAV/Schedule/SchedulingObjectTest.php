@@ -2,6 +2,7 @@
 
 namespace Sabre\CalDAV\Schedule;
 
+use InvalidArgumentException;
 use Sabre\CalDAV\Backend;
 
 class SchedulingObjectTest extends \PHPUnit\Framework\TestCase {
@@ -58,17 +59,15 @@ ICS;
         $children = $this->inbox->getChildren();
         $this->assertTrue($children[0] instanceof SchedulingObject);
 
-        $this->assertInternalType('string', $children[0]->getName());
-        $this->assertInternalType('string', $children[0]->get());
-        $this->assertInternalType('string', $children[0]->getETag());
+        $this->assertIsString($children[0]->getName());
+        $this->assertIsString($children[0]->get());
+        $this->assertIsString($children[0]->getETag());
         $this->assertEquals('text/calendar; charset=utf-8', $children[0]->getContentType());
 
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     */
     function testInvalidArg1() {
+        $this->expectException(InvalidArgumentException::class);
 
         $obj = new SchedulingObject(
             new Backend\MockScheduling([], []),
@@ -78,10 +77,8 @@ ICS;
 
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     */
     function testInvalidArg2() {
+        $this->expectException(InvalidArgumentException::class);
 
         $obj = new SchedulingObject(
             new Backend\MockScheduling([], []),
@@ -93,9 +90,9 @@ ICS;
 
     /**
      * @depends testSetup
-     * @expectedException \Sabre\DAV\Exception\MethodNotAllowed
      */
     function testPut() {
+        $this->expectException(\Sabre\DAV\Exception\MethodNotAllowed::class);
 
         $children = $this->inbox->getChildren();
         $this->assertTrue($children[0] instanceof SchedulingObject);
@@ -146,7 +143,7 @@ ICS;
         $obj = $children[0];
 
         $size = $obj->getSize();
-        $this->assertInternalType('int', $size);
+        $this->assertIsInt($size);
 
     }
 
@@ -224,10 +221,8 @@ ICS;
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\Forbidden
-     */
     function testSetACL() {
+        $this->expectException(\Sabre\DAV\Exception\Forbidden::class);
 
         $children = $this->inbox->getChildren();
         $this->assertTrue($children[0] instanceof SchedulingObject);

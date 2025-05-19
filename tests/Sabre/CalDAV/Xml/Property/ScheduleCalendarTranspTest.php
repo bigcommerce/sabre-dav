@@ -25,10 +25,8 @@ class ScheduleCalendarTranspTest extends DAV\Xml\XmlTest {
 
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     function testBadValue() {
+        $this->expectException(\InvalidArgumentException::class);
 
         new ScheduleCalendarTransp('ahhh');
 

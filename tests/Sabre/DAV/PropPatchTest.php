@@ -217,10 +217,8 @@ class PropPatchTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException \UnexpectedValueException
-     */
     function testHandleSingleBrokenResult() {
+        $this->expectException(\UnexpectedValueException::class);
 
         $propPatch = new PropPatch([
             '{DAV:}a' => 'foo',
@@ -331,10 +329,8 @@ class PropPatchTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException \UnexpectedValueException
-     */
     function testHandleMultiValueBroken() {
+        $this->expectException(\UnexpectedValueException::class);
 
         $propPatch = new PropPatch([
             '{DAV:}a' => 'foo',

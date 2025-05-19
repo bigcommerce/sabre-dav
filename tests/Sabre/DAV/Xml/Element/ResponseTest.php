@@ -164,9 +164,9 @@ class ResponseTest extends DAV\Xml\XmlTest {
 
     /**
      * @depends testSerialize
-     * @expectedException \InvalidArgumentException
      */
     function testSerializeBreak() {
+        $this->expectException(\InvalidArgumentException::class);
 
         $innerProps = [
             200 => [

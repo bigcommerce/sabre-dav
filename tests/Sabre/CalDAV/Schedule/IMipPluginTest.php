@@ -214,7 +214,7 @@ ICS;
 
         $expected = [];
         $this->assertEquals($expected, $result);
-        $this->assertEquals('1.0', $message->getScheduleStatus()[0]);
+        $this->assertEquals('1.0', $message->getScheduleStatus());
 
     }
 

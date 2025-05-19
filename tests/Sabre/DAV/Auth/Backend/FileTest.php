@@ -17,10 +17,8 @@ class FileTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception
-     */
     function testLoadFileBroken() {
+        $this->expectException(\Sabre\DAV\Exception::class);
 
         file_put_contents(SABRE_TEMPDIR . '/backend', 'user:realm:hash');
         $file = new File(SABRE_TEMPDIR . '/backend');

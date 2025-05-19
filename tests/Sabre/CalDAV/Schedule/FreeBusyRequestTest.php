@@ -143,10 +143,8 @@ END:VCALENDAR',
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\BadRequest
-     */
     function testNoItipMethod() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $this->server->httpRequest = new HTTP\Request(
             'POST',
@@ -166,10 +164,8 @@ ICS;
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\NotImplemented
-     */
     function testNoVFreeBusy() {
+        $this->expectException(\Sabre\DAV\Exception\NotImplemented::class);
 
         $this->server->httpRequest = new HTTP\Request(
             'POST',
@@ -190,10 +186,8 @@ ICS;
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\Forbidden
-     */
     function testIncorrectOrganizer() {
+        $this->expectException(\Sabre\DAV\Exception\Forbidden::class);
 
         $this->server->httpRequest = new HTTP\Request(
             'POST',
@@ -216,10 +210,8 @@ ICS;
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\BadRequest
-     */
     function testNoAttendees() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $this->server->httpRequest = new HTTP\Request(
             'POST',
@@ -241,10 +233,8 @@ ICS;
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\BadRequest
-     */
     function testNoDTStart() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $this->server->httpRequest = new HTTP\Request(
             'POST',

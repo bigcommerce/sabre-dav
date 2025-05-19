@@ -14,14 +14,15 @@
         }
     ],
     "repositories": [
-      { "type": "vcs", "url": "https://github.com/bigcommerce-labs/sabre-http", "replace": { "sabre/http": "*" } }
+        { "type": "git", "url": "https://github.com/bigcommerce/sabre-event", "replace": { "sabre/event": "*" } },
+        { "type": "git", "url": "https://github.com/bigcommerce/sabre-http", "replace": { "sabre/http": "*" } }
     ],
     "require": {
         "php": ">=8.1.0",
         "sabre/vobject": "^4.1.0",
-        "sabre/event" : ">=2.0.0, <4.0.0",
+        "sabre/event" : "^3.0.0.1",
         "sabre/xml"  : "^1.4.0",
-        "sabre/http" : "4.2.4.*",
+        "sabre/http" : "^4.2.4.4",
         "sabre/uri" : "^1.0.1",
         "ext-dom": "*",
         "ext-pcre": "*",

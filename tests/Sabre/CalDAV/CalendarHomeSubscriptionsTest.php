@@ -61,10 +61,8 @@ class CalendarHomeSubscriptionsTest extends \PHPUnit\Framework\TestCase {
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\InvalidResourceType
-     */
     function testNoSubscriptionSupport() {
+        $this->expectException(\Sabre\DAV\Exception\InvalidResourceType::class);
 
         $principal = [
             'uri' => 'principals/user1'

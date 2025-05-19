@@ -114,10 +114,8 @@ XML;
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\BadRequest
-     */
     function testFreeBusyReportNoTimeRange() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $reportXML = <<<XML
 <?xml version="1.0"?>
@@ -129,10 +127,8 @@ XML;
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception\NotImplemented
-     */
     function testFreeBusyReportWrongNode() {
+        $this->expectException(\Sabre\DAV\Exception\NotImplemented::class);
 
         $request = HTTP\Sapi::createFromServerArray([
             'REQUEST_URI' => '/',
@@ -151,10 +147,8 @@ XML;
 
     }
 
-    /**
-     * @expectedException Sabre\DAV\Exception
-     */
     function testFreeBusyReportNoACLPlugin() {
+        $this->expectException(\Sabre\DAV\Exception::class);
 
         $this->server = new DAV\Server();
         $this->plugin = new Plugin();

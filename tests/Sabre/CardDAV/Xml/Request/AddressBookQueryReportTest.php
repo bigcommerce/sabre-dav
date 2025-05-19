@@ -84,10 +84,8 @@ XML;
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\BadRequest
-     */
     function testDeserializeBadTest() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $xml = <<<XML
 <?xml version="1.0"?>
@@ -234,10 +232,8 @@ XML;
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\BadRequest
-     */
     function testDeserializeBadMatchType() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $xml = <<<XML
 <?xml version="1.0"?>
@@ -258,10 +254,8 @@ XML;
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\BadRequest
-     */
     function testDeserializeBadMatchType2() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $xml = <<<XML
 <?xml version="1.0"?>
@@ -280,10 +274,8 @@ XML;
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\BadRequest
-     */
     function testDeserializeDoubleFilter() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $xml = <<<XML
 <?xml version="1.0"?>

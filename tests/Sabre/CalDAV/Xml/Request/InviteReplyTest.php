@@ -57,10 +57,8 @@ XML;
 
     }
 
-    /**
-     * @expectedException \Sabre\DAV\Exception\BadRequest
-     */
     function testDeserializeNoHostUrl() {
+        $this->expectException(\Sabre\DAV\Exception\BadRequest::class);
 
         $xml = <<<XML
 <?xml version="1.0"?>
